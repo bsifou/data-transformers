@@ -1,0 +1,17 @@
+
+
+* workflow
+**  output the "from" (model ) to file / same for "out"
+** peut etre utuliser xsd fichier pour avoir les types 
+*** on peut utuliser spec? .... 
+
+* working with maps 
+** medley
+** zippers 
+**** resources
+***** http://www.exampler.com/blog/2010/09/01/editing-trees-in-clojure-with-clojurezip/   
+** ... 
+
+* Crazy? 
+** make a macro that outputs the defs for the model & files in
+ 

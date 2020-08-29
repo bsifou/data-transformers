@@ -1,0 +1,215 @@
+No.,Name
+1002,Cash
+1015,Cash-SunTrust
+1020,Cash - A/P ZBA
+1021,SunTrust Credit Line
+1061,Petty Cash - National Office
+1062,Petty Cash - Northeast Region
+1063,Petty Cash - Southwest Region
+1064,Petty Cash - Pacific Region
+1065,Petty Cash - Midwest Region
+1066,Petty Cash - Govt Relations
+1067,Petty Cash - Midwest R/D
+1068,Petty Cash - Southwest R/D
+1069,Petty Cash - Pacific R/D
+1231,Mastercard CC Rebate
+1242,Receivables from Vendors
+1243,Air Travel Receivable & Miscellaneous Receivable
+1245,Prepaid Debit Card
+1247,Comdata Virtual Card Payments
+1248,BGCA MasterCard Receivble from Employee
+1249,Prepaid Expense ComData Ghost Card
+1250,Prepaid Expense-Medical Insurance
+1251,Temporary Advances to employee
+1252,Travel Advance To Employees
+1253,Deposits
+1254,Prepaid Expenses
+1255,Prepaid Scholarship Expenses
+1256,Prepaid Postage Meter
+1257,Prepaid Pension
+1258,Prepaid Pension Admin Fee
+1259,Prepaid Expense -MC Credit Card
+1260,Prepaid Taxes
+1261,Deposits-Medcom Healthcare FSA
+1760,Furniture - NE
+1761,Tenant Improvement-Metro PCS
+1762,Tenant Improvmt-BGCA MetroATL
+2002,Accounts Payable
+2003,Accounts Payable -Professional Fees
+2004,DA Morale Welfare & Rec Fund
+2005,Accounts Payable - Other
+2006,Agency
+2007,Supplemental & Dependent Life
+2008,Accrued Incentive Plan
+2012,Encumbrance Account
+2013,Unidentified Cash Receipts
+2014,Deferred Compensation
+2015,Accounts Payable -Cassidy Prop
+2016,Accounts Payable - UBIT Carter
+2017,Medical/Dental Insurance - EEs
+2018,Miscellaneous Acct Payble-Dues
+2019,Deferred Contribution
+2020,Deposits Payable
+2021,Unclaimed Property
+2022,Deferred Rent Expense
+2023,Deferred Revenue - Govt
+2025,Accounts Payable - Scholarship
+2028,Accounts Payable-PeachtreeAssn
+2030,Accounts Payable - Federal Fun
+2047,BGCA Mastercard Payable to Comdata (VC)
+2048,BGCA MasterCard Payable to Suntrust
+2049,BGCA MasterCard Payable to Comdata (GC)
+2056,457B Plan W/H
+2077,401(K) Withheld -  Fidelity
+8001,Audit Fees
+8003,Legal Fees
+8004,Lobbying Fees
+8005,Professional Fundraising Fees
+8006,Advertising Contractor's Fees
+8007,Finder's Fees/Employment Agency Fees
+8020,Consultant Services
+8040,Contract Services/Honorarium
+8050,Contractual Services
+8060,Computer Services
+8062,Software Packages
+8063,IT Professional Fees
+8101,Pro-rated Supplies Expense
+8111,Office Supplies
+8132,Supplies - Leased Eqpt DO NOT USE
+8151,Program Supplies
+8161,Awards Supplies
+8162,Computer Supplies
+8163,Photography Supplies
+8165,Computer Equipment
+8201,Telephone -Gen'l Optg Allocation
+8211,Local/800#/Long Distance/CallC
+8231,Data Frame Relay
+8241,Telephone - Cellular & Pagers
+8251,Telephone - Telecommuters
+8261,Internet/Data
+8301,Pro-rated Postage & Shipping
+8321,Postage & Shipping
+8331,IDM Postage & Shipping
+8400,Occupancy
+8401,Rent
+8407,Rental Income
+8410,Building Maintenance
+8416,Building Supplies
+8418,Insurance
+8419,Real Estate Taxes
+8420,Utilities
+8425,Janitorial Services
+8426,Garbage Pick-up
+8427,Security Systems
+8450,Pro-rate to Other Services
+8451,Repairs to Building
+8499,Miscellaneous Occupancy Costs
+8501,Rental & Repair of Equipment
+8511,Equipment Rental
+8521,Maintenance Contracts- NON-IT
+8522,Maintenance Contracts-IT Related
+8551,Equipment Repairs
+8569,Repairs:Tech Labor-Misc Eqpt DO NOT USE
+8579,Repairs: Parts-Misc Equipment DO NOT USE
+8601,Pro-rated Printing
+8611,Printing
+8621,Xeroxing
+8641,Subscriptions
+8651,Reference Publications
+8681,Income -Sale of Printed Items
+8701,Travel and Maintenance
+8711,Air Travel
+8712,Auto Travel
+8713,Limousine & Taxi
+8714,All Other Transportation
+8715,Mileage Reimbursement
+8718,Insurance - Company Vehicles
+8720,Leasing Costs -Company Vehicle
+8721,Lodging
+8731,Meals
+8791,Miscellaneous-Travel
+8810,Registration Fees Received
+8811,Meeting Supplies
+8815,Mileage Reimbursement
+8821,Telephone
+8831,Food For Meeting Participants
+8840,Registration Fees (Expense)
+8845,Registration Fees - Refunds
+8851,Equipment Rental
+8861,Lodging/Meeting Space
+8871,Air Travel
+8872,All Other Travel
+8881,Entertainment
+8891,"Miscellaneous-Trng,Conf,Meetin"
+8897,Rental Income
+9011,Individual Dues
+9021,Organization Dues
+9121,Individual Assistance
+9125,Performance Expense
+9131,Tuition
+9141,Scholarships
+9150,Awards to Local Clubs
+9151,Vista
+9152,NCMEC
+9155,Technology Centers
+9160,Other Awards and Grants
+9170,Towards New Century
+9211,Equipment
+9231,Furniture
+9241,Others
+9251,Renovations
+9301,Relocation Expense-Budget
+9310,Travel and Maintenance
+9320,Temporary Housing
+9330,Moving and Storage
+9340,Closing Costs
+9350,Miscellaneous Relocation
+9412,Newspaper Ads
+9413,NJ Disability Expense
+9414,Washington W/C Insurance
+9415,Hawaii SUI Tax Expense
+9416,New Mexico SUI Tax Expense
+9417,Washington SUI Expense
+9418,Other Insurance
+9419,New York Workers Comp
+9420,New Jersey SUI Expense
+9421,Flowers
+9422,Pennsylvania SUI Expense
+9423,Kentucky Employer SUI
+9424,South Dakota SUI
+9425,Montana Admin Fund Fee
+9430,Annuity Payments
+9435,Royalty Expense
+9440,Employee Relations (HR USE ONLY)
+9445,Business Income Taxes
+9450,Filing Fees
+9455,Late Fees
+9460,Administrative Overhead
+9461,Admin Overhead - Grant Closing
+9465,Sponsorship - Other
+9466,Special Events Sponsorships
+9468,Time Restricted Grants(Budget)
+9469,Interest - Capital Leases
+9470,Interest on Loan
+9471,Bonds Remarketing Fees
+9472,Amortization -Bond Issuance
+9474,Interest Expense
+9497,Bank Service Fees/Charges
+9498,Contingency
+9499,Others
+9701,Consultant Services
+9711,Supplies
+9713,Awards Supplies
+9716,Telephone
+9721,Printing
+9730,Air Travel
+9731,Travel - Ground Transport
+9732,Lodging/Meeting Space
+9733,Meals
+9741,Food For Meeting Participants
+9751,Entertainment
+9752,Equipment Rental
+9761,Miscellaneous
+9762,Postage & Shipping
+9763,Messengers
+9771,Awards

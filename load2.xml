@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<envelope>
+  <header>
+    <action>
+      http://schemas.xmlsoap.org/ws/2005/02/trust/RST/Issue
+    </action>
+    <reply-to>
+      <address>
+        http://www.w3.org/2005/08/addressing/anonymous
+      </address>
+    </reply-to>
+    <to>
+      https://login.microsoftonline.com/extSTS.srf
+    </to>
+    <security>
+      <username-token>
+        <username>
+          sbiri@fluxym.com
+        </username>
+        <password>
+          highAndAbove5$
+        </password>
+      </username-token>
+    </security>
+  </header>
+  <body>
+    <request-security-token>
+      <applies-to>
+        <endpoint-reference>
+          <address>
+            https://flu.sharepoint.com
+          </address>
+        </endpoint-reference>
+      </applies-to>
+      <key-type>
+        http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey
+      </key-type>
+      <request-type>
+        http://schemas.xmlsoap.org/ws/2005/02/trust/Issue
+      </request-type>
+      <token-type>
+        urn:oasis:names:tc:SAML:1.0:assertion
+      </token-type>
+    </request-security-token>
+  </body>
+</envelope>

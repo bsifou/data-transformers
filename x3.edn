@@ -1,0 +1,12 @@
+{:ct
+ {:tenant-name "vofluxymca",
+  :database-type "Oracle",
+  :product-version "19.4.0.0",
+  :description "e",
+  :cmn-screen-table
+  {:cmn-screen
+   {:id "a4fcec2d5cbd4d1182f2a52110wo3488",
+    :screen-key "PurchaseRequisition",
+    :product-code "Procurement",
+    :name "Purchase Requisition",
+    :description "Purchase Requisition"}}}}

@@ -1,0 +1,15 @@
+{:main       configs.server
+ :output-to  "resources/public/js/compiled/qlkit_todo.js"
+ :output-dir "resources/public/js/compiled/out"
+ :nrepl-middleware [cider.piggieback/wrap-cljs-repl]
+ ;; recently added
+ ;; :optimizations :none
+ ;; :source-map true
+ ;; :source-map-timestamp false
+ ;; :target :nodejs
+ ;; :static-fns true
+ ;; :fn-invoke-direct true
+ ;; :compiler-stats true
+ ;; :install-deps false
+ }
+

@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--Version 2.3 of the Customer Basic Data Configuration File -->
+<erpConnector>
+	<sections>
+		<section name="PerformInterface">
+
+		</section>
+
+		<section name="TestPreImport">
+
+		</section>
+
+
+		<!--
+		Permet créer d'alimenter la table EXT_INV_LIST_7 avec les utilisateurs qui sont dans un groupe d'utilisateurs
+		dont le role est "Approver"
+		Attention : si le droit est descendant, toutes les organisations sont importées
+
+		-> Scheduled Task "Load Custom Data 7 (Header)"
+
+	History:
+		2019-03-27 CDE Création du code
+		
+-->
+		<section name="PreInvList7">
+			<section name="jumpInitialize" jumpToXmlFile="{F,COMBINE(v,CustomerConfigurationDir;&quot;InvoicePro_Customer_Initialize.xml&quot;)}" jumpToXPath="//section[@name='Initialize']" />
+
+			<clearTable>data</clearTable>
+			<clearTable>filelist2</clearTable>
+			<variable name="interface_temp">InvList7</variable>
+			<variable name="PATH">{F,DBSELECT("Select PATH from EXT_IF_BASICDATA where INTERFACE =?";v,providerconnection;v,interface_temp)}</variable>
+
+			<variable name="TimeStamp">{F,NOW(),"yyyyMMddHHmmss"}</variable>
+
+			<variable name="PATH">{v,PATH}</variable>
+			<variable name="IF_DATA_ROOT_DIR">{v,PATH}</variable>
+
+			<variable name="RootID">{F,DBSELECT("SELECT ORGANIZATION_ELEMENT_ID FROM ADM_STRUCTURE_ITEM ";v,providerconnection)}</variable>
+
+			<onError onErrorJumpToXPath="//section[@name='errorHandler_Main']" resume="false">
+
+				<section name="ReadFile">
+
+					<variable name="RoleApprobateur">%Approver%</variable>
+					<method name="GetData">
+						<builtInMethodParameterList name="bw_db_functions" driver="provider">
+							<parameter name="connectionstring" log="False">{v,connstr}</parameter>
+							<parameter name="dataprovider">{v,dataprovider}</parameter>
+							<parameter name="assemblyname">{v,assemblyname}</parameter>
+							<parameter name="prefix">{v,BoundVariableChar}</parameter>
+							<parameter name="parameter1">{v,RoleApprobateur}</parameter>
+							<parameter name="tablename">data</parameter>
+							<parameter name="command">
+								SELECT
+								oc.organization_element_id AS ORG_ID
+								,oc.code AS ORG_CODE
+								,ud.login_account AS LOGIN_ACCOUNT
+								,ud.FULLNAME AS FULLNAME
+								FROM ADM_USER_GROUP_ROLE ugr
+								INNER JOIN ADM_ORGANIZATION_ELEMENT oe
+								ON ugr.ORGANIZATION_ELEMENT_ID = oe.ID
+								INNER JOIN ADM_ORGANIZATION_CHILD_LIST oc
+								ON oc.PARENT_ID = oe.ID
+								AND oc.TYPE = 1
+								INNER JOIN ADM_USER_GROUP_MEMBER ugm
+								ON ugr.USER_GROUP_ID = ugm.USER_GROUP_ID
+								INNER JOIN ADM_USER_DATA ud
+								ON ud.ID = ugm.USER_DATA_ID
+								WHERE ugr.USER_ROLE_ID IN (
+								SELECT ID FROM ADM_USER_ROLE ur
+								WHERE ur.USER_ROLE_NAME like {v,BoundVariableChar}parameter1)
+								GROUP BY oc.organization_element_id, oc.code, ud.login_account, ud.FULLNAME
+								ORDER BY oc.code
+							</parameter>
+						</builtInMethodParameterList>
+					</method>
+
+					<transaction name="WriteDataTemp" include="{F,AND(F,IF(F,EXISTS(data);&quot;=&quot;;1);F,IF(F,ROWCOUNT(data);&gt;;0))}" ignoreErrors="False">
+
+						<section name="BuildInterfaceXML" include="true">
+							<output type="Basware.ErpConnector.OutputResource.XmlWriterOutputResource">
+								<parameter name="path">{v,IF_DATA_ROOT_DIR}InvList7.xml</parameter>
+								<parameter name="checkcharacters">true</parameter>
+								<parameter name="encoding">UTF-8</parameter>
+								<parameter name="indent">true</parameter>
+								<parameter name="newlinechar"></parameter>
+								<parameter name="omitxmldeclaration">false</parameter>
+								<outputCommands log="False">
+									<command type="startelement">DocumentElement</command>
+									<commandSection name="Item" loopDataSource="data">
+										<command type="startelement">Item</command>
+										<!-- Login -->
+										<command type="startelement">Text_1</command>
+										<command type="write">{data,LOGIN_ACCOUNT}</command>
+										<command type="endelement" />
+										<!-- Full name -->
+										<command type="startelement">Text_2</command>
+										<command type="write">{data,FULLNAME}</command>
+										<command type="endelement" />
+										<!-- Nothing -->
+										<command type="startelement">Text_3</command>
+										<command type="write">{c,""}</command>
+										<command type="endelement" />
+										<!-- Company -->
+										<command type="startelement">Company</command>
+										<command type="write">{data,ORG_CODE}</command>
+										<command type="endelement" />
+										<command type="endelement" />
+									</commandSection>
+									<command type="endelement" />
+								</outputCommands>
+							</output>
+						</section>
+					</transaction>
+					<removeTable>data</removeTable>
+				</section>
+			</onError>
+		</section>
+		<!--
+		Allows to create and fill the table ADM_ACCOUNT
+		-> Scheduled Task "Load Accounts"
+
+	History:
+		2019-03-29 HPE Code initialization 
+		
+-->
+		<section name="PreGLAccount">
+			<method name="GetAccountFiles">
+				<builtInMethodParameterList name="bw_file_functions">
+					<parameter name="command">dir</parameter>
+					<parameter name="filename">{v,SYS_InBoundDirectory}\BW_GLAccounts*</parameter>					<!-- CSV file name and path upload in Inbound Directory -->
+					<return name="accountlist_temp">
+						<filter/>
+						<sort />
+					</return>
+				</builtInMethodParameterList>
+			</method>
+			<section name="ActionIfFileExist" include="{F,IF(F,ROWCOUNT(accountlist_temp);&gt;;0)}">
+				<variable name="SourceInputFile">{accountlist_temp,name}</variable>				<!-- Full Path of the csv file -->
+				<onError onErrorJumpToXPath="//section[@name='BasicDataErrorHandler']" resume="false">
+					<removeTable>CSVData</removeTable>					<!-- Clear CSVData datasource -->
+					<section name="jumpToInitializeSourceData" jumpToXPath="//section[@name='InitializeCSVPreGLAccount']" />
+					<!-- Variable initialization  -->
+					<section name="jumpToCaptureSourceData" jumpToXPath="//section[@name='CaptureCSVData']" />
+					<!-- Split CSV and fill CSVData datasource -->
+					<section name="jumpToGenerateTargetData" jumpToXPath="//section[@name='GenerateXMLDataGLAccount']" />
+					<!-- Generate XML format in a Datasource from a Datasource -->
+					<section name="jumpToBackupSourceFile" jumpToXPath="//section[@name='SourceDataBackupFile']" />
+					<!-- Create XML file backup  -->
+					<removeTable>CSVData</removeTable>					<!-- vider la table retour de données -->
+				</onError>
+			</section>
+		</section>
+		<section name="InitializeCSVPreGLAccount">
+			<variable name="TempFile">{v,SYS_InBoundDirectory}{c,"Accounts"}.xml</variable>			<!-- XML output file name  -->
+			<variable name="CSVFileColumnSeparator">,</variable>			<!-- set the character that separates the data in the CSV file here -->
+			<variable name="CSVUseColumnNameHeaders">false</variable>			<!-- Uses the values on the first line of CSV to define the column header names in AnyERP data source (skips 1st line when true) -->
+			<variable name="CSVSkipLines">1</variable>			<!-- Skip the first x lines in CSV file? -->
+			<variable name="CSVTextDelimiterSwitch"></variable>			<!-- OPTIONAL - Populate with none if your values are not surrounded by double quotes -->
+		</section>
+		<section name="CaptureCSVData">
+			<method name="CaptureCSVData">
+				<builtInMethodParameterList name="bw_textfile_input">
+					<!-- Split CSV and fill CSVData datasource -->
+					<parameter name="filename">{v,SYS_InBoundDirectory}{v,SourceInputFile}</parameter>
+					<parameter name="colseparator">{v,CSVFileColumnSeparator}</parameter>
+					<parameter name="colnameheader">{v,CSVUseColumnNameHeaders}</parameter>
+					<parameter name="textdelimiter">{v,CSVTextDelimiterSwitch}</parameter>
+					<parameter name="skiplines">{v,CSVSkipLines}</parameter>
+					<return name="CSVData">
+						<filter />
+						<sort />
+					</return>
+				</builtInMethodParameterList>
+			</method>
+		</section>
+		<section name="GenerateXMLDataGLAccount" include="{F,IF(F,ROWCOUNT(CSVData);&gt;;0)}">
+			<!-- XML file generation if datasource is not empty -->
+			<output type="BasWare.ErpConnector.OutputResource.XmlOutputResource">
+				<parameter name="path">{v,TempFile}</parameter>
+				<parameter name="append">true</parameter>
+				<!-- "DocumentElement" node  -->
+				<outputCommands>
+					<command type="node:DocumentElement"/>
+				</outputCommands>
+				<outputCommands loopDataSource="CSVData" log="True">
+					<!-- Loop on CSVData datasource to create XML file -->
+					<command type="node:Item" include="{CSVData,F1}" attribute="//DocumentElement"/>
+					<command type="node:Company" include="{CSVData,F1}" attribute="//DocumentElement/Item[last()]">{CSVData,F4}</command>
+					<command type="node:Text_1" include="{CSVData,F1}" attribute="//DocumentElement/Item[last()]">{CSVData,F3}</command>
+					<command type="node:Text_2" include="{CSVData,F1}" attribute="//DocumentElement/Item[last()]">en-US:{CSVData,F2}/en-US</command>
+					<command type="node:TaxCode" include="{CSVData,F1}" attribute="//DocumentElement/Item[last()]"></command>
+					<command type="node:Inherit" include="{CSVData,F1}" attribute="//DocumentElement/Item[last()]">{F,LOWER(CSVData,F1)}</command>
+				</outputCommands>
+			</output>
+		</section>
+		<section name="SourceDataBackupFile">			<!-- Create XML file backup and move in into backup directory -->
+			<method name="BackupFiles">
+				<builtInMethodParameterList name="bw_file_functions">
+					<parameter name="command">rename</parameter>
+					<parameter name="filename">{v,SYS_InBoundDirectory}{v,SourceInputFile}</parameter>
+					<parameter name="newname">{v,PATH}\Backup\{v,SourceInputFile}.{F,NOW(),"yyyyMMddHHmmss"}.bak</parameter>
+				</builtInMethodParameterList>
+			</method>
+		</section>
+		<!--
+		Allows to create and fill the table ADM_SUPPLIERS
+		-> Scheduled Task "Load SUPPLIERS"
+
+	History:
+		2019-04-01 HPE Code initialization 
+		
+-->
+		<section name="PreSuppliers">
+			<method name="GetSuppliersFiles">
+				<builtInMethodParameterList name="bw_file_functions">
+					<parameter name="command">dir</parameter>
+					<parameter name="filename">{v,SYS_InBoundDirectory}\BW_Suppliers*</parameter>					<!-- CSV file name and path upload in Inbound Directory -->
+					<return name="list_temp">
+						<filter/>
+						<sort />
+					</return>
+				</builtInMethodParameterList>
+			</method>
+			<section name="ActionIfFileExist" include="{F,IF(F,ROWCOUNT(list_temp);&gt;;0)}">
+				<variable name="SourceInputFile">{list_temp,name}</variable>				<!-- Full Path of the csv file -->
+				<onError onErrorJumpToXPath="//section[@name='BasicDataErrorHandler']" resume="false">
+					<removeTable>CSVData</removeTable>					<!-- Clear CSVData datasource -->
+					<section name="jumpToInitializeSourceData" jumpToXPath="//section[@name='InitializeCSVPreSuppliers']" />
+					<!-- Variable initialization  -->
+					<section name="jumpToCaptureSourceData" jumpToXPath="//section[@name='CaptureCSVData']" />
+					<!-- Split CSV and fill CSVData datasource -->
+					<section name="jumpToGenerateTargetData" jumpToXPath="//section[@name='GenerateXMLDataSuppliers']" />
+					<!-- Generate XML format in a Datasource from a Datasource -->
+					<section name="jumpToBackupSourceFile" jumpToXPath="//section[@name='SourceDataBackupFile']" />
+					<!-- Create XML file backup  -->
+					<removeTable>CSVData</removeTable>					<!-- vider la table retour de données -->
+				</onError>
+			</section>
+		</section>
+		<section name="InitializeCSVPreSuppliers">
+			<variable name="TempFile">{v,SYS_InBoundDirectory}{c,"suppliers"}.xml</variable>			<!-- XML output file name  -->
+			<variable name="CSVFileColumnSeparator">,</variable>			<!-- set the character that separates the data in the CSV file here -->
+			<variable name="CSVUseColumnNameHeaders">false</variable>			<!-- Uses the values on the first line of CSV to define the column header names in AnyERP data source (skips 1st line when true) -->
+			<variable name="CSVSkipLines">1</variable>			<!-- Skip the first x lines in CSV file? -->
+			<variable name="CSVTextDelimiterSwitch"></variable>			<!-- OPTIONAL - Populate with none if your values are not surrounded by double quotes -->
+		</section>
+		<section name="GenerateXMLDataSuppliers" include="{F,IF(F,ROWCOUNT(CSVData);&gt;;0)}">
+			<section name="WriteSupplierData" include="False">				<!-- Supplier XML creation with XMLoutput -too long to import  -->
+				<!-- XML file generation if datasource is not empty -->
+				<output type="BasWare.ErpConnector.OutputResource.XmlOutputResource">
+					<parameter name="path">{v,TempFile}</parameter>
+					<parameter name="append">true</parameter>
+					<parameter name="omitutf8bom">False</parameter>
+					<!-- "DocumentElement" node  -->
+					<outputCommands>
+						<command type="node:DocumentElement"/>
+					</outputCommands>
+					<outputCommands loopDataSource="CSVData" log="True">
+						<!-- Loop on CSVData datasource to create XML file -->
+						<command type="node:Supplier" attribute="//DocumentElement"/>
+						<command type="node:Company" attribute="//DocumentElement/Supplier[last()]">{CSVData,F23}</command>
+						<command type="node:Code" attribute="//DocumentElement/Supplier[last()]">{CSVData,F14}</command>
+						<command type="node:Name" attribute="//DocumentElement/Supplier[last()]">{CSVData,F16}</command>
+						<command type="node:PaymentDenied" attribute="//DocumentElement/Supplier[last()]">{F,EVAL(F,TONUMBER(CSVData,F11;".");=;1;"False";F,EVAL(F,TONUMBER(CSVData,F11;".");=;0;"True";"ERROR"))}</command>
+						<command type="node:PaymentTermCode" attribute="//DocumentElement/Supplier[last()]">{CSVData,F19}</command>
+						<command type="node:Currency" attribute="//DocumentElement/Supplier[last()]">{CSVData,F12}</command>
+						<command type="node:Active" attribute="//DocumentElement/Supplier[last()]">{CSVData,F2}</command>
+						<command type="node:Inherit" attribute="//DocumentElement/Supplier[last()]">{CSVData,F2}</command>
+						<command type="node:BankAccounts" attribute="//DocumentElement/Supplier[last()]"/>
+						<command type="node:SupplierIdentifiers" attribute="//DocumentElement/Supplier[last()]"/>
+						<command type="node:EmailAddresses" attribute="//DocumentElement/Supplier[last()]"/>
+						<command type="node:AdditionalDatas" attribute="//DocumentElement/Supplier[last()]"/>
+						<command type="node:SupplierAddresses" attribute="//DocumentElement/Supplier[last()]"/>
+						<command type="node:SupplierAddress" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]"/>
+						<command type="node:ExternalIdentifier" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]">{F,COMBINE(CSVData,F14;C,"Main")}</command>
+						<command type="node:Name" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]">{F,COMBINE(CSVData,F14;C,"Main")}</command>
+						<command type="node:AddressParts" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]"></command>
+						<!-- Address 1 -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Address_1</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F3}</command>
+						<!-- Address 2 -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Address_2</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F4}</command>
+						<!-- Address 3 -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Address_3</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F5}</command>
+						<!-- Phone -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Phone</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F6}</command>
+						<!-- Zip Code -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Zip_Code</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F20}</command>
+						<!-- City -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">City</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F9}</command>
+						<!-- State -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">State</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F17}</command>
+						<!-- Country  -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Country</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F10}</command>
+						<!-- Attention to -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Attention_to</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F7}</command>
+						<!-- Email -->
+						<command type="node:SupplierAddressPart" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]"></command>
+						<command type="node:AddressPartKey" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">Email</command>
+						<command type="node:AddressPartText" attribute="//DocumentElement/Supplier[last()]/SupplierAddresses[last()]/SupplierAddress[last()]/AddressParts[last()]/SupplierAddressPart[last()]">{CSVData,F13}</command>
+					</outputCommands>
+				</output>
+			</section>
+			<section name="WriteSupplierDataTxt" include="True">				<!-- Supplier XML creation with Textoutput  -->
+				<output type="Basware.ErpConnector.OutputResource.TextOutputResource" log="{v,sys_objectdebug}">
+					<parameter name="path">{v,TempFile}</parameter>
+					<parameter name="append">False</parameter>
+					<parameter name="encoding">utf-8</parameter>
+					<outputCommands log="False">
+						<command>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</command>
+						<command>&lt;DocumentElement&gt;</command>
+					</outputCommands>
+				</output>
+				<section name="WriteXMLData" loopDataSource="CSVData">
+					<output type="Basware.ErpConnector.OutputResource.TextOutputResource">
+						<parameter name="path">{v,TempFile}</parameter>
+						<parameter name="append">True</parameter>
+						<parameter name="encoding">utf-8</parameter>
+						<outputCommands log="False">
+							<command>   &lt;Supplier&gt;</command>
+							<command>      &lt;Company&gt;{F,XMLENCODE(F,TRIM(CSVData,F23))}&lt;/Company&gt;</command>
+							<command>      &lt;Code&gt;{F,XMLENCODE(F,TRIM(CSVData,F14))}&lt;/Code&gt;</command>
+							<command>      &lt;Name&gt;{F,XMLENCODE(F,TRIM(CSVData,F16))}&lt;/Name&gt;</command>
+							<command>      &lt;PaymentTermCode&gt;{F,XMLENCODE(F,REPLACE(CSVData,F19;" ";"_"))}&lt;/PaymentTermCode&gt;</command>
+							<command>      &lt;Currency&gt;{F,XMLENCODE(F,TRIM(CSVData,F12))}&lt;/Currency&gt;</command>
+							<command>      &lt;PaymentDenied&gt;{F,XMLENCODE(F,TRIM(F,EVAL(F,TONUMBER(CSVData,F11;".");=;1;"False";F,EVAL(F,TONUMBER(CSVData,F11;".");=;0;"True";"ERROR"))))}&lt;/PaymentDenied&gt;</command>
+							<command>      &lt;Active&gt;{F,XMLENCODE(F,TRIM(CSVData,F2))}&lt;/Active&gt;</command>
+							<command>      &lt;Inherit&gt;{F,XMLENCODE(F,TRIM(CSVData,F2))}&lt;/Inherit&gt;</command>
+							<commandSection name="SupplierIdentifiers">
+								<command>      &lt;SupplierIdentifiers&gt;</command>
+								<command>        &lt;SupplierIdentifier&gt;</command>
+								<command>          &lt;key&gt;{c,"PartyID"}&lt;/key&gt;
+								&lt;value&gt;{F,COMBINE(F,XMLENCODE(F,TRIM(CSVData,F23));F,XMLENCODE(F,TRIM(CSVData,F14)))}&lt;/value&gt;</command>
+								<command>        &lt;/SupplierIdentifier&gt;</command>
+								<!-- adresses dans les identifiers -->
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Address_1_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F3);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Address_2_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F4);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Address_3_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F5);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Phone_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F6);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Zip_Code_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F20);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;City_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F9);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;State_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F17);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Country_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F10);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Attention_to_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F7);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierIdentifier&gt;</command>
+							<command>						&lt;key&gt;Email_Identifier&lt;/key&gt;</command>
+							<command>						&lt;value&gt;{F,XMLENCODE(F,LEFT(F,TRIM(CSVData,F13);50))}&lt;/value&gt;</command>
+							<command>					&lt;/SupplierIdentifier&gt;</command>
+							
+								<command>      &lt;/SupplierIdentifiers&gt;</command>
+							</commandSection>
+							<command>      &lt;AdditionalDatas&gt;</command>
+							<command>      &lt;/AdditionalDatas&gt;</command>
+							<command>      &lt;BankAccounts&gt;</command>
+							<command>      &lt;/BankAccounts&gt;</command>
+							<!-- Add contact email address -->
+							<command>      &lt;EmailAddresses&gt;</command>
+							<command>      &lt;/EmailAddresses&gt;</command>
+
+							<command>      &lt;SupplierAddresses&gt;</command>
+							<command>   	&lt;SupplierAddress&gt;</command>
+							<command>			  &lt;ExternalIdentifier&gt;{F,XMLENCODE(F,TRIM(F,COMBINE(CSVData,F14;C,"Main")))}&lt;/ExternalIdentifier&gt;</command>
+							<command>			&lt;Name&gt;{F,XMLENCODE(F,TRIM(F,COMBINE(CSVData,F14;C,"Main")))}&lt;/Name&gt;</command>
+							<command>             &lt;AddressParts&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Address_1&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F3))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Address_2&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F4))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Address_3&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F5))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Phone&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F6))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Zip_Code&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F20))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;City&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F9))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;State&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F17))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Country&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F10))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Attention_to&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F7))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<!-- Adress street - Address_1 -->
+							<command>					&lt;SupplierAddressPart&gt;</command>
+							<command>						&lt;AddressPartKey&gt;Email&lt;/AddressPartKey&gt;</command>
+							<command>						&lt;AddressPartText&gt;{F,XMLENCODE(F,TRIM(CSVData,F13))}&lt;/AddressPartText&gt;</command>
+							<command>					&lt;/SupplierAddressPart&gt;</command>
+							<command>				&lt;/AddressParts&gt;</command>
+							<command>			&lt;/SupplierAddress&gt;</command>
+							<command>		&lt;/SupplierAddresses&gt;</command>
+							
+							
+							<command>   &lt;/Supplier&gt;</command>
+						</outputCommands>
+					</output>
+				</section>
+				<output type="Basware.ErpConnector.OutputResource.TextOutputResource" log="{v,sys_objectdebug}">
+					<parameter name="path">{v,TempFile}</parameter>
+					<parameter name="append">True</parameter>
+					<parameter name="encoding">utf-8</parameter>
+					<outputCommands log="False">
+						<command>&lt;/DocumentElement&gt;</command>
+					</outputCommands>
+				</output>
+			</section>
+
+		</section>
+		<!--
+		Allows to create and fill the table ADM_PROJECTS
+		-> Scheduled Task "Load Projects"
+
+	History:
+		2019-04-02 HPE Code initialization 
+		
+-->
+		<section name="PreProjects">
+			<method name="GetProjectsFiles">
+				<builtInMethodParameterList name="bw_file_functions">
+					<parameter name="command">dir</parameter>
+					<parameter name="filename">{v,SYS_InBoundDirectory}\BW_Project*</parameter>					<!-- CSV file name and path upload in Inbound Directory -->
+					<return name="projectslist_temp">
+						<filter/>
+						<sort />
+					</return>
+				</builtInMethodParameterList>
+			</method>
+			<section name="ActionIfFileExist" include="{F,IF(F,ROWCOUNT(projectslist_temp);&gt;;0)}">
+				<variable name="SourceInputFile">{projectslist_temp,name}</variable>				<!-- Full Path of the csv file -->
+				<onError onErrorJumpToXPath="//section[@name='BasicDataErrorHandler']" resume="false">
+					<removeTable>CSVData</removeTable>					<!-- Clear CSVData datasource -->
+					<section name="jumpToInitializeSourceData" jumpToXPath="//section[@name='InitializeCSVPreProjects']" />
+					<!-- Variable initialization  -->
+					<section name="jumpToCaptureSourceData" jumpToXPath="//section[@name='CaptureCSVData']" />
+					<!-- Split CSV and fill CSVData datasource -->
+					<section name="jumpToGenerateTargetData" jumpToXPath="//section[@name='GenerateXMLDataProjects']" />
+					<!-- Generate XML format in a Datasource from a Datasource -->
+					<section name="jumpToBackupSourceFile" jumpToXPath="//section[@name='SourceDataBackupFile']" />
+					<!-- Create XML file backup  -->
+					<removeTable>CSVData</removeTable>					<!-- vider la table retour de données -->
+				</onError>
+			</section>
+		</section>
+		<section name="InitializeCSVPreProjects">
+			<variable name="TempFile">{v,SYS_InBoundDirectory}{c,"Projects"}.xml</variable>			<!-- XML output file name  -->
+			<variable name="CSVFileColumnSeparator">,</variable>			<!-- set the character that separates the data in the CSV file here -->
+			<variable name="CSVUseColumnNameHeaders">false</variable>			<!-- Uses the values on the first line of CSV to define the column header names in AnyERP data source (skips 1st line when true) -->
+			<variable name="CSVSkipLines">1</variable>			<!-- Skip the first x lines in CSV file? -->
+			<variable name="CSVTextDelimiterSwitch"></variable>			<!-- OPTIONAL - Populate with none if your values are not surrounded by double quotes -->
+		</section>
+		<section name="GenerateXMLDataProjects" include="{F,IF(F,ROWCOUNT(CSVData);&gt;;0)}">
+			<!-- XML file generation if datasource is not empty -->
+			<output type="BasWare.ErpConnector.OutputResource.XmlOutputResource">
+				<parameter name="path">{v,TempFile}</parameter>
+				<parameter name="append">true</parameter>
+				<!-- "DocumentElement" node  -->
+				<outputCommands>
+					<command type="node:DocumentElement"/>
+				</outputCommands>
+				<outputCommands loopDataSource="CSVData" log="True">
+					<!-- Loop on CSVData datasource to create XML file -->
+					<command type="node:Item" attribute="//DocumentElement"/>
+					<command type="node:Code" attribute="//DocumentElement/Item[last()]">{CSVData,F3}</command>
+					<command type="node:Name" attribute="//DocumentElement/Item[last()]">{CSVData,F2}</command>
+					<command type="node:Description" attribute="//DocumentElement/Item[last()]"></command>
+					<command type="node:Company" attribute="//DocumentElement/Item[last()]">{CSVData,F4}</command>
+					<command type="node:Active" attribute="//DocumentElement/Item[last()]">{F,EVAL(CSVData,F1;=;TRUE;1;F,EVAL(CSVData,F1;=;FALSE;0;"ERROR"))}</command>
+				</outputCommands>
+			</output>
+		</section>
+		<section name="errorHandler_Main">
+
+			<!-- Récupération du détail de l'exception -->
+			<variable name="ExceptionP2P">{F,REGEXP_STRING(error,exception;"(&lt;faultstring&gt;).*(&lt;\/faultstring&gt;)")}</variable>
+			<variable name="ExceptionP2P">{F,REPLACE(v,ExceptionP2P;"&lt;faultstring&gt;";"")}</variable>
+			<variable name="ExceptionP2P">{F,REPLACE(v,ExceptionP2P;"&lt;/faultstring&gt;";"")}</variable>
+			<variable name="errorMessage">{error,baseexception}</variable>
+			<variable name="exceptionMessage">{error,exception}</variable>
+
+			<clearTable>Recipients</clearTable>
+			<method name="SplitRecipients">
+				<builtInMethodParameterList name="bw_string_functions">
+					<parameter name="operation">split</parameter>
+					<parameter name="sourcestring">{v,EMAIL_Recipient}</parameter>
+					<parameter name="separator">;</parameter>
+					<return name="Recipients">
+						<filter />
+						<sort />
+					</return>
+				</builtInMethodParameterList>
+			</method>
+
+			<!-- Alerte par email -->
+			<section name="SendErrorEmail" include="{v,ERROR_SEND_EMAIL}">
+				<method name="SendErrorEmail">
+					<builtInMethodParameterList name="email">
+						<parameter name="to" loopDataSource="Recipients">{Recipients,Recipients}</parameter>
+						<parameter name="subject">{v,ERROR_TAG}{F,EVAL(F,EXISTS(v;taskname);=;1;F,COMBINE("[";v,taskname;"]");c,"")}</parameter>
+						<parameter name="server">{v,EMAIL_Server}</parameter>
+						<parameter name="from">{v,EMAIL_Sender}</parameter>
+						<parameter name="format">html</parameter>
+						<parameter name="body">{v,emailBody}</parameter>
+					</builtInMethodParameterList>
+				</method>
+			</section>
+
+			<!-- Renommage du fichier en erreur pour ne pas qu'il soit repris -->
+			<section name="RenameFile" include="{F,EVAL(F,EXISTS(filelist;name);=;1;true;false)}">
+				<method name="RenameFile">
+					<builtInMethodParameterList name="bw_file_functions">
+						<parameter name="command">rename</parameter>
+						<parameter name="filename">{v,SYS_InBoundDirectory}{filelist,name}</parameter>
+						<parameter name="newname">{v,SYS_InBoundDirectory}{F,REPLACE(F,REPLACE(filelist,name;".XML";".ERREUR");".xml";".ERREUR")}</parameter>
+					</builtInMethodParameterList>
+				</method>
+			</section>
+		</section>
+
+		<!--  Pre Cost centers section-->
+		<section name="PreCostcenters">
+			<section>
+				<removeTable>UserList</removeTable>
+			</section>
+			<section name="Costcenters">
+				<method name="GetCostcentersList">
+					<builtInMethodParameterList name="bw_db_functions" driver="provider">
+						<parameter name="tablename">Costcenters</parameter>
+						<parameter name="connectionstring" log="False">{v,connstr}</parameter>
+						<parameter name="dataprovider">{v,dataprovider}</parameter>
+						<parameter name="assemblyname">{v,assemblyname}</parameter>
+						<parameter name="prefix">{v,BoundVariableChar}</parameter>
+						<parameter name="command">select CODE, NAME, (select ID from ADM_ORGANIZATION_ELEMENT where type=1) as Company from ADM_ORGANIZATION_ELEMENT where type=2</parameter>
+					</builtInMethodParameterList>
+				</method>
+			</section>
+			<output name="OutputData" type="Basware.ErpConnector.OutputResource.XmlWriterOutputResource">
+				<parameter name="path">{v,path}\{v,filename}</parameter>
+				<parameter name="checkcharacters">true</parameter>
+				<parameter name="encoding">UTF-8</parameter>
+				<parameter name="indent">true</parameter>
+				<parameter name="newlinechar" />
+				<parameter name="omitxmldeclaration">true</parameter>
+				<outputCommands>
+					<command type="startelement">DocumentElement</command>
+					<commandSection loopDataSource="Costcenters" include="{F,IF(F,ROWCOUNT(Costcenters);&gt;;0)}">
+						<command type="startelement">Item</command>
+						<command type="startelement">Text_1</command>
+						<command type="write">{F,NVL(Costcenters,CODE;"")}</command>
+						<command type="endelement"/>
+						<command type="startelement">Text_2</command>
+						<command type="write">{F,NVL(Costcenters,NAME;"")}</command>
+						<command type="endelement" />
+						<command type="startelement">Company</command>
+						<command type="write">{F,NVL(Costcenters,COMPANY;"")}</command>
+						<command type="endelement"/>
+						<command type="endelement" />
+					</commandSection>
+					<command type="endelement" />
+				</outputCommands>
+			</output>
+			<clearTable>UserList</clearTable>
+		</section>
+
+	</sections>
+</erpConnector>
+
+
+

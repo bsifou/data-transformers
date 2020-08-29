@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Documentelement>
+  <Supplier>
+      <Company>
+        
+      </Company>
+      <Code>
+        
+      </Code>
+      <Name>
+        
+      </Name>
+      <Paymentdenied>
+        
+      </Paymentdenied>
+      <Paymenttermcode>
+        
+      </Paymenttermcode>
+      <Currency>
+        
+      </Currency>
+      <Active>
+        
+      </Active>
+      <Language>
+        
+      </Language>
+      <Orderformat>
+        
+      </Orderformat>
+      <Orderemail>
+        
+      </Orderemail>
+      <Inherit>
+        
+      </Inherit>
+      <Deliverytermcode>
+        
+      </Deliverytermcode>
+      <Location>
+        
+      </Location>
+      <Bankaccounts>
+        <Supplierbankaccount>
+            <Bban>
+              
+            </Bban>
+            <Name>
+              
+            </Name>
+            <Additionaldata1>
+              
+            </Additionaldata1>
+            <Additionaldata2>
+              
+            </Additionaldata2>
+            <Iban>
+              
+            </Iban>
+            <Swift>
+              
+            </Swift>
+            <Isdefault>
+              
+            </Isdefault>
+        </Supplierbankaccount>
+      </Bankaccounts>
+      <Supplieridentifiers>
+        <Supplieridentifier>
+            <Key>
+              
+            </Key>
+            <Value>
+              
+            </Value>
+            <Defaultpartyid>
+              
+            </Defaultpartyid>
+        </Supplieridentifier>
+      </Supplieridentifiers>
+      <Additionaldatas>
+        <Additionaldata>
+            <Key>
+              
+            </Key>
+            <Value>
+              
+            </Value>
+        </Additionaldata>
+      </Additionaldatas>
+      <Supplieraddresses>
+        <Supplieraddress>
+            <Externalcode>
+              
+            </Externalcode>
+            <Type>
+              
+            </Type>
+            <Name>
+              
+            </Name>
+            <Description>
+              
+            </Description>
+            <Isdefault>
+              
+            </Isdefault>
+            <Externalidentifier>
+              
+            </Externalidentifier>
+            <Addressparts>
+              <Supplieraddresspart>
+                  <Addresspartkey>
+                    
+                  </Addresspartkey>
+                  <Addressparttext>
+                    
+                  </Addressparttext>
+              </Supplieraddresspart>
+            </Addressparts>
+        </Supplieraddress>
+      </Supplieraddresses>
+      <Emailaddresses>
+        <Supplieremail>
+          <Emailaddress>
+            
+          </Emailaddress>
+        </Supplieremail>
+      </Emailaddresses>
+  </Supplier>
+</Documentelement>

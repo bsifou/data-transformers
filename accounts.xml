@@ -1,0 +1,856 @@
+<?xml version='1.0' encoding='UTF-8'?><DocumentElement>  <Item><Text_1>1002</Text_1>
+<Text_2>Cash</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1015</Text_1>
+<Text_2>Cash-SunTrust</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1020</Text_1>
+<Text_2>Cash - A/P ZBA</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1021</Text_1>
+<Text_2>SunTrust Credit Line</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1061</Text_1>
+<Text_2>Petty Cash - National Office</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1062</Text_1>
+<Text_2>Petty Cash - Northeast Region</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1063</Text_1>
+<Text_2>Petty Cash - Southwest Region</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1064</Text_1>
+<Text_2>Petty Cash - Pacific Region</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1065</Text_1>
+<Text_2>Petty Cash - Midwest Region</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1066</Text_1>
+<Text_2>Petty Cash - Govt Relations</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1067</Text_1>
+<Text_2>Petty Cash - Midwest R/D</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1068</Text_1>
+<Text_2>Petty Cash - Southwest R/D</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1069</Text_1>
+<Text_2>Petty Cash - Pacific R/D</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1231</Text_1>
+<Text_2>Mastercard CC Rebate</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1242</Text_1>
+<Text_2>Receivables from Vendors</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1243</Text_1>
+<Text_2>Air Travel Receivable &amp; Miscellaneous Receivable</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1245</Text_1>
+<Text_2>Prepaid Debit Card</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1247</Text_1>
+<Text_2>Comdata Virtual Card Payments</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1248</Text_1>
+<Text_2>BGCA MasterCard Receivble from Employee</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1249</Text_1>
+<Text_2>Prepaid Expense ComData Ghost Card</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1250</Text_1>
+<Text_2>Prepaid Expense-Medical Insurance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1251</Text_1>
+<Text_2>Temporary Advances to employee</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1252</Text_1>
+<Text_2>Travel Advance To Employees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1253</Text_1>
+<Text_2>Deposits</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1254</Text_1>
+<Text_2>Prepaid Expenses</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1255</Text_1>
+<Text_2>Prepaid Scholarship Expenses</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1256</Text_1>
+<Text_2>Prepaid Postage Meter</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1257</Text_1>
+<Text_2>Prepaid Pension</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1258</Text_1>
+<Text_2>Prepaid Pension Admin Fee</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1259</Text_1>
+<Text_2>Prepaid Expense -MC Credit Card</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1260</Text_1>
+<Text_2>Prepaid Taxes</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1261</Text_1>
+<Text_2>Deposits-Medcom Healthcare FSA</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1760</Text_1>
+<Text_2>Furniture - NE</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1761</Text_1>
+<Text_2>Tenant Improvement-Metro PCS</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>1762</Text_1>
+<Text_2>Tenant Improvmt-BGCA MetroATL</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2002</Text_1>
+<Text_2>Accounts Payable</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2003</Text_1>
+<Text_2>Accounts Payable -Professional Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2004</Text_1>
+<Text_2>DA Morale Welfare &amp; Rec Fund</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2005</Text_1>
+<Text_2>Accounts Payable - Other</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2006</Text_1>
+<Text_2>Agency</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2007</Text_1>
+<Text_2>Supplemental &amp; Dependent Life</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2008</Text_1>
+<Text_2>Accrued Incentive Plan</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2012</Text_1>
+<Text_2>Encumbrance Account</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2013</Text_1>
+<Text_2>Unidentified Cash Receipts</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2014</Text_1>
+<Text_2>Deferred Compensation</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2015</Text_1>
+<Text_2>Accounts Payable -Cassidy Prop</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2016</Text_1>
+<Text_2>Accounts Payable - UBIT Carter</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2017</Text_1>
+<Text_2>Medical/Dental Insurance - EEs</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2018</Text_1>
+<Text_2>Miscellaneous Acct Payble-Dues</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2019</Text_1>
+<Text_2>Deferred Contribution</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2020</Text_1>
+<Text_2>Deposits Payable</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2021</Text_1>
+<Text_2>Unclaimed Property</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2022</Text_1>
+<Text_2>Deferred Rent Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2023</Text_1>
+<Text_2>Deferred Revenue - Govt</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2025</Text_1>
+<Text_2>Accounts Payable - Scholarship</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2028</Text_1>
+<Text_2>Accounts Payable-PeachtreeAssn</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2030</Text_1>
+<Text_2>Accounts Payable - Federal Fun</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2047</Text_1>
+<Text_2>BGCA Mastercard Payable to Comdata (VC)</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2048</Text_1>
+<Text_2>BGCA MasterCard Payable to Suntrust</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2049</Text_1>
+<Text_2>BGCA MasterCard Payable to Comdata (GC)</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2056</Text_1>
+<Text_2>457B Plan W/H</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>2077</Text_1>
+<Text_2>401(K) Withheld -  Fidelity</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8001</Text_1>
+<Text_2>Audit Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8003</Text_1>
+<Text_2>Legal Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8004</Text_1>
+<Text_2>Lobbying Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8005</Text_1>
+<Text_2>Professional Fundraising Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8006</Text_1>
+<Text_2>Advertising Contractor's Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8007</Text_1>
+<Text_2>Finder's Fees/Employment Agency Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8020</Text_1>
+<Text_2>Consultant Services</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8040</Text_1>
+<Text_2>Contract Services/Honorarium</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8050</Text_1>
+<Text_2>Contractual Services</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8060</Text_1>
+<Text_2>Computer Services</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8062</Text_1>
+<Text_2>Software Packages</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8063</Text_1>
+<Text_2>IT Professional Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8101</Text_1>
+<Text_2>Pro-rated Supplies Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8111</Text_1>
+<Text_2>Office Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8132</Text_1>
+<Text_2>Supplies - Leased Eqpt DO NOT USE</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8151</Text_1>
+<Text_2>Program Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8161</Text_1>
+<Text_2>Awards Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8162</Text_1>
+<Text_2>Computer Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8163</Text_1>
+<Text_2>Photography Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8165</Text_1>
+<Text_2>Computer Equipment</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8201</Text_1>
+<Text_2>Telephone -Gen'l Optg Allocation</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8211</Text_1>
+<Text_2>Local/800#/Long Distance/CallC</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8231</Text_1>
+<Text_2>Data Frame Relay</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8241</Text_1>
+<Text_2>Telephone - Cellular &amp; Pagers</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8251</Text_1>
+<Text_2>Telephone - Telecommuters</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8261</Text_1>
+<Text_2>Internet/Data</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8301</Text_1>
+<Text_2>Pro-rated Postage &amp; Shipping</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8321</Text_1>
+<Text_2>Postage &amp; Shipping</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8331</Text_1>
+<Text_2>IDM Postage &amp; Shipping</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8400</Text_1>
+<Text_2>Occupancy</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8401</Text_1>
+<Text_2>Rent</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8407</Text_1>
+<Text_2>Rental Income</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8410</Text_1>
+<Text_2>Building Maintenance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8416</Text_1>
+<Text_2>Building Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8418</Text_1>
+<Text_2>Insurance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8419</Text_1>
+<Text_2>Real Estate Taxes</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8420</Text_1>
+<Text_2>Utilities</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8425</Text_1>
+<Text_2>Janitorial Services</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8426</Text_1>
+<Text_2>Garbage Pick-up</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8427</Text_1>
+<Text_2>Security Systems</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8450</Text_1>
+<Text_2>Pro-rate to Other Services</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8451</Text_1>
+<Text_2>Repairs to Building</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8499</Text_1>
+<Text_2>Miscellaneous Occupancy Costs</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8501</Text_1>
+<Text_2>Rental &amp; Repair of Equipment</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8511</Text_1>
+<Text_2>Equipment Rental</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8521</Text_1>
+<Text_2>Maintenance Contracts- NON-IT</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8522</Text_1>
+<Text_2>Maintenance Contracts-IT Related</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8551</Text_1>
+<Text_2>Equipment Repairs</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8569</Text_1>
+<Text_2>Repairs:Tech Labor-Misc Eqpt DO NOT USE</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8579</Text_1>
+<Text_2>Repairs: Parts-Misc Equipment DO NOT USE</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8601</Text_1>
+<Text_2>Pro-rated Printing</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8611</Text_1>
+<Text_2>Printing</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8621</Text_1>
+<Text_2>Xeroxing</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8641</Text_1>
+<Text_2>Subscriptions</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8651</Text_1>
+<Text_2>Reference Publications</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8681</Text_1>
+<Text_2>Income -Sale of Printed Items</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8701</Text_1>
+<Text_2>Travel and Maintenance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8711</Text_1>
+<Text_2>Air Travel</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8712</Text_1>
+<Text_2>Auto Travel</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8713</Text_1>
+<Text_2>Limousine &amp; Taxi</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8714</Text_1>
+<Text_2>All Other Transportation</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8715</Text_1>
+<Text_2>Mileage Reimbursement</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8718</Text_1>
+<Text_2>Insurance - Company Vehicles</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8720</Text_1>
+<Text_2>Leasing Costs -Company Vehicle</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8721</Text_1>
+<Text_2>Lodging</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8731</Text_1>
+<Text_2>Meals</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8791</Text_1>
+<Text_2>Miscellaneous-Travel</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8810</Text_1>
+<Text_2>Registration Fees Received</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8811</Text_1>
+<Text_2>Meeting Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8815</Text_1>
+<Text_2>Mileage Reimbursement</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8821</Text_1>
+<Text_2>Telephone</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8831</Text_1>
+<Text_2>Food For Meeting Participants</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8840</Text_1>
+<Text_2>Registration Fees (Expense)</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8845</Text_1>
+<Text_2>Registration Fees - Refunds</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8851</Text_1>
+<Text_2>Equipment Rental</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8861</Text_1>
+<Text_2>Lodging/Meeting Space</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8871</Text_1>
+<Text_2>Air Travel</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8872</Text_1>
+<Text_2>All Other Travel</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8881</Text_1>
+<Text_2>Entertainment</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8891</Text_1>
+<Text_2>Miscellaneous-Trng,Conf,Meetin</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>8897</Text_1>
+<Text_2>Rental Income</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9011</Text_1>
+<Text_2>Individual Dues</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9021</Text_1>
+<Text_2>Organization Dues</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9121</Text_1>
+<Text_2>Individual Assistance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9125</Text_1>
+<Text_2>Performance Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9131</Text_1>
+<Text_2>Tuition</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9141</Text_1>
+<Text_2>Scholarships</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9150</Text_1>
+<Text_2>Awards to Local Clubs</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9151</Text_1>
+<Text_2>Vista</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9152</Text_1>
+<Text_2>NCMEC</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9155</Text_1>
+<Text_2>Technology Centers</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9160</Text_1>
+<Text_2>Other Awards and Grants</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9170</Text_1>
+<Text_2>Towards New Century</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9211</Text_1>
+<Text_2>Equipment</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9231</Text_1>
+<Text_2>Furniture</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9241</Text_1>
+<Text_2>Others</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9251</Text_1>
+<Text_2>Renovations</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9301</Text_1>
+<Text_2>Relocation Expense-Budget</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9310</Text_1>
+<Text_2>Travel and Maintenance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9320</Text_1>
+<Text_2>Temporary Housing</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9330</Text_1>
+<Text_2>Moving and Storage</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9340</Text_1>
+<Text_2>Closing Costs</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9350</Text_1>
+<Text_2>Miscellaneous Relocation</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9412</Text_1>
+<Text_2>Newspaper Ads</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9413</Text_1>
+<Text_2>NJ Disability Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9414</Text_1>
+<Text_2>Washington W/C Insurance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9415</Text_1>
+<Text_2>Hawaii SUI Tax Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9416</Text_1>
+<Text_2>New Mexico SUI Tax Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9417</Text_1>
+<Text_2>Washington SUI Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9418</Text_1>
+<Text_2>Other Insurance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9419</Text_1>
+<Text_2>New York Workers Comp</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9420</Text_1>
+<Text_2>New Jersey SUI Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9421</Text_1>
+<Text_2>Flowers</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9422</Text_1>
+<Text_2>Pennsylvania SUI Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9423</Text_1>
+<Text_2>Kentucky Employer SUI</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9424</Text_1>
+<Text_2>South Dakota SUI</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9425</Text_1>
+<Text_2>Montana Admin Fund Fee</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9430</Text_1>
+<Text_2>Annuity Payments</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9435</Text_1>
+<Text_2>Royalty Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9440</Text_1>
+<Text_2>Employee Relations (HR USE ONLY)</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9445</Text_1>
+<Text_2>Business Income Taxes</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9450</Text_1>
+<Text_2>Filing Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9455</Text_1>
+<Text_2>Late Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9460</Text_1>
+<Text_2>Administrative Overhead</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9461</Text_1>
+<Text_2>Admin Overhead - Grant Closing</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9465</Text_1>
+<Text_2>Sponsorship - Other</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9466</Text_1>
+<Text_2>Special Events Sponsorships</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9468</Text_1>
+<Text_2>Time Restricted Grants(Budget)</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9469</Text_1>
+<Text_2>Interest - Capital Leases</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9470</Text_1>
+<Text_2>Interest on Loan</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9471</Text_1>
+<Text_2>Bonds Remarketing Fees</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9472</Text_1>
+<Text_2>Amortization -Bond Issuance</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9474</Text_1>
+<Text_2>Interest Expense</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9497</Text_1>
+<Text_2>Bank Service Fees/Charges</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9498</Text_1>
+<Text_2>Contingency</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9499</Text_1>
+<Text_2>Others</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9701</Text_1>
+<Text_2>Consultant Services</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9711</Text_1>
+<Text_2>Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9713</Text_1>
+<Text_2>Awards Supplies</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9716</Text_1>
+<Text_2>Telephone</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9721</Text_1>
+<Text_2>Printing</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9730</Text_1>
+<Text_2>Air Travel</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9731</Text_1>
+<Text_2>Travel - Ground Transport</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9732</Text_1>
+<Text_2>Lodging/Meeting Space</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9733</Text_1>
+<Text_2>Meals</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9741</Text_1>
+<Text_2>Food For Meeting Participants</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9751</Text_1>
+<Text_2>Entertainment</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9752</Text_1>
+<Text_2>Equipment Rental</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9761</Text_1>
+<Text_2>Miscellaneous</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9762</Text_1>
+<Text_2>Postage &amp; Shipping</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9763</Text_1>
+<Text_2>Messengers</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item>
+  <Item><Text_1>9771</Text_1>
+<Text_2>Awards</Text_2>
+<Company>BGC</Company>
+<Inherit>1</Inherit></Item></DocumentElement>

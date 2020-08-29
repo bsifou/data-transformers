@@ -1,0 +1,442 @@
+﻿<CT IsOrganizationIncluded="true">
+  <Tenant_Name>vofluxymca</Tenant_Name>
+  <Database_Type>Oracle</Database_Type>
+  <Product_Version>19.4.0.0</Product_Version>
+  <DESCRIPTION>e</DESCRIPTION>
+  <CMN_SCREEN_TABLE>
+    <CMN_SCREEN>
+      <ID>1</ID>
+      <SCREEN_KEY>MyTasksCenterKey</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>MyTasksCenter</NAME>
+      <DESCRIPTION>My tasks page center view</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>17</ID>
+      <SCREEN_KEY>Transfer</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>Transfer</NAME>
+      <DESCRIPTION>Transfer search screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>18</ID>
+      <SCREEN_KEY>TransferDetailsPage</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>TransferDetailsPage</NAME>
+      <DESCRIPTION>Transfer details page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>19</ID>
+      <SCREEN_KEY>TransferDetailsPage_readonly</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>TransferDetailsPage_readonly</NAME>
+      <DESCRIPTION>Transfer details page (readonly)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>20</ID>
+      <SCREEN_KEY>NonProfessionalSearchInvoices</SCREEN_KEY>
+      <PRODUCT_CODE>Support</PRODUCT_CODE>
+      <NAME>NonProfessionalSearchInvoices</NAME>
+      <DESCRIPTION>Non-professional search invoices screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>22</ID>
+      <SCREEN_KEY>InWorkFlow</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>InWorkFlow</NAME>
+      <DESCRIPTION>In workflow search screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>23</ID>
+      <SCREEN_KEY>InWorkFlowDetailsPage</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>InWorkFlowDetailsPage</NAME>
+      <DESCRIPTION>In workflow details page (also in use in search invoices screens when searching in workflow invoices)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>30</ID>
+      <SCREEN_KEY>Received</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>Received</NAME>
+      <DESCRIPTION>Received search screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>4</ID>
+      <SCREEN_KEY>SendToProcessPage</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>SendToProcessPage</NAME>
+      <DESCRIPTION>Received &amp; create new invoice details page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>40</ID>
+      <SCREEN_KEY>CodingTemplatesDetailsPage</SCREEN_KEY>
+      <PRODUCT_CODE>Support</PRODUCT_CODE>
+      <NAME>CodingTemplatesDetailsPage</NAME>
+      <DESCRIPTION>Coding templates details screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>5</ID>
+      <SCREEN_KEY>SearchInvoices</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>SearchInvoices</NAME>
+      <DESCRIPTION>Search invoices screen (professional)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>60</ID>
+      <SCREEN_KEY>MatchingInvoices</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>MatchingInvoicesPage</NAME>
+      <DESCRIPTION>Matching details page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>7</ID>
+      <SCREEN_KEY>InvoiceDetailsPage</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>SearchInvoicesDetailsPage</NAME>
+      <DESCRIPTION>Search invoices details page (for completed and cancelled invoices)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>70</ID>
+      <SCREEN_KEY>ManualMatching</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>ManualMatchingPage</NAME>
+      <DESCRIPTION>In matching search page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>71</ID>
+      <SCREEN_KEY>InWorkFlow_OpenTasks</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>InWorkFlow_OpenTasks</NAME>
+      <DESCRIPTION>Open tasks panel (In workflow &amp; search invoices details pages)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>72</ID>
+      <SCREEN_KEY>NonProfessionalInvoiceDetailsPage</SCREEN_KEY>
+      <PRODUCT_CODE>Support</PRODUCT_CODE>
+      <NAME>NonProfessionalInvoiceDetailsPage</NAME>
+      <DESCRIPTION>Non Professional Search invoices details page (for completed and cancelled invoices)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>73</ID>
+      <SCREEN_KEY>PayPlanMyTasks</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>PayPlanMyTasks</NAME>
+      <DESCRIPTION>PayPlans screen in my tasks</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>74</ID>
+      <SCREEN_KEY>PayPlanDetailsPage</SCREEN_KEY>
+      <PRODUCT_CODE>PP</PRODUCT_CODE>
+      <NAME>PayPlanDetailsPage</NAME>
+      <DESCRIPTION>PayPlan details sceen in professional mode</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>91</ID>
+      <SCREEN_KEY>GRList</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>GRList</NAME>
+      <DESCRIPTION>Goods Receipt</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>AdditionalCostScreen</ID>
+      <SCREEN_KEY>AdditionalCostPage</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>AdditionalCostPage</NAME>
+      <DESCRIPTION>Data Management - Order Matching - Additional Costs</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>ContractDetailScreen</ID>
+      <SCREEN_KEY>ContractDetailScreen</SCREEN_KEY>
+      <PRODUCT_CODE>CONTRACTS</PRODUCT_CODE>
+      <NAME>Contract Deatail Screen</NAME>
+      <DESCRIPTION>Contract Deatail Screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>ContractSearchScreen</ID>
+      <SCREEN_KEY>ContractSearchScreen</SCREEN_KEY>
+      <PRODUCT_CODE>CONTRACTS</PRODUCT_CODE>
+      <NAME>Contract Search Screen</NAME>
+      <DESCRIPTION>Contract Search Screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>D135A30EA8014B88BE240E9916934C2B</ID>
+      <SCREEN_KEY>EdgeRequestPayPlan</SCREEN_KEY>
+      <PRODUCT_CODE>PP</PRODUCT_CODE>
+      <NAME>EdgeRequestPayPlanConfiguration</NAME>
+      <DESCRIPTION>Edge Request PayPlan Configuration</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgeConfig</ID>
+      <SCREEN_KEY>EdgeConfig</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>Edge Configuration</NAME>
+      <DESCRIPTION>Create new edge page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgeCreateInvoice</ID>
+      <SCREEN_KEY>EdgeCreateInvoice</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>Edge Create Invoice</NAME>
+      <DESCRIPTION>Create new invoice edge page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgeProPurchaseOrder</ID>
+      <SCREEN_KEY>EdgeProPurchaseOrderScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Pro Purchase Order</NAME>
+      <DESCRIPTION>Purchase order screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgePurchaseOrder</ID>
+      <SCREEN_KEY>EdgePurchaseOrderScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Order</NAME>
+      <DESCRIPTION>Purchase order screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgePurchaseRequisitionApprove</ID>
+      <SCREEN_KEY>EdgePurchaseRequisitionApproveScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Approve)</NAME>
+      <DESCRIPTION>Purchase Requisition Approve</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgePurchaseRequisitionDraft</ID>
+      <SCREEN_KEY>EdgePurchaseRequisitionDraftScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Draft)</NAME>
+      <DESCRIPTION>Purchase Requisition Draft</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgePurchaseRequisitionFinalize</ID>
+      <SCREEN_KEY>EdgePurchaseRequisitionFinalizeScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Finalize)</NAME>
+      <DESCRIPTION>Purchase Requisition Finalize</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgePurchaseRequisitionPro</ID>
+      <SCREEN_KEY>EdgePurchaseRequisitionProScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Pro Purchase Requisition</NAME>
+      <DESCRIPTION>Pro Purchase Requisition</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>EdgePurchaseRequisitionReview</ID>
+      <SCREEN_KEY>EdgePurchaseRequisitionReviewScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Review)</NAME>
+      <DESCRIPTION>Purchase Requisition Review</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>GDM</ID>
+      <SCREEN_KEY>GeneralDataMaintenance</SCREEN_KEY>
+      <PRODUCT_CODE>ConfigurationTool</PRODUCT_CODE>
+      <NAME>GeneralDataMaintenance</NAME>
+      <DESCRIPTION>General Data Maintenance (GDM) Screen for all GDM data</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>PCP</ID>
+      <SCREEN_KEY>PersonalCreatePage</SCREEN_KEY>
+      <PRODUCT_CODE>IA</PRODUCT_CODE>
+      <NAME>PersonalCreatePage</NAME>
+      <DESCRIPTION>Create new invoice page(My Task)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_GRSearch</ID>
+      <SCREEN_KEY>GRSearch</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>GR Search</NAME>
+      <DESCRIPTION>Goods Receipt Search Page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_POHDAddressScreen</ID>
+      <SCREEN_KEY>PurchaseOrderHeaderDelivery</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Order Header Delivery</NAME>
+      <DESCRIPTION>Purchase order Header Delivery screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_PRHDelAppAddressScreen</ID>
+      <SCREEN_KEY>PRHeaderDeliveryApprove</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>PR Header Delivery (Approve)</NAME>
+      <DESCRIPTION>PR Header Delivery screen (Approve)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_PRHDelDraftAddressScreen</ID>
+      <SCREEN_KEY>PRHeaderDeliveryDraft</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>PR Header Delivery (Draft)</NAME>
+      <DESCRIPTION>PR Header Delivery screen (Draft)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_PRHDelRevAddressScreen</ID>
+      <SCREEN_KEY>PRHeaderDeliveryReview</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>PR Header Delivery (Review)</NAME>
+      <DESCRIPTION>PR Header Delivery screen (Review)</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_SAdmin1</ID>
+      <SCREEN_KEY>ProcAdminWelcomeListPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ProcAdminWelcomeListPage</NAME>
+      <DESCRIPTION>Procurement admin welcome page list view page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_SAdmin2</ID>
+      <SCREEN_KEY>ProcAdminItemListPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ProcAdminItemListPage</NAME>
+      <DESCRIPTION>Procurement admin Items page list view page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_SAdmin3</ID>
+      <SCREEN_KEY>ProcAdminWelcomeDetailPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ProcAdminWelcomeDetailPage</NAME>
+      <DESCRIPTION>Procurement admin welcome page detail Page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_SAdmin4</ID>
+      <SCREEN_KEY>ProcAdminItemDetailPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ProcAdminItemDetailPage</NAME>
+      <DESCRIPTION>Procurement admin Items detail page list view</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_SAdmin5</ID>
+      <SCREEN_KEY>ProcAdminCategoryPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ProcAdminCategoryPage</NAME>
+      <DESCRIPTION>Procurement admin Category Page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_SAdmin6</ID>
+      <SCREEN_KEY>PunchoutSite</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>PunchoutSite</NAME>
+      <DESCRIPTION>Punch-out site</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_SAdmin7</ID>
+      <SCREEN_KEY>ProcAdminFTFItemListPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ProcAdminFTFItemListPage</NAME>
+      <DESCRIPTION>Procurement admin FTF-Items page list view page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_ShopScreen1</ID>
+      <SCREEN_KEY>WebShopSearchPersonal</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>WebShopSearchPersonal</NAME>
+      <DESCRIPTION>Web Shop Search Personal mode Grid List</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_ShopScreen2</ID>
+      <SCREEN_KEY>WebShopSearchPersonalDetailPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>WebShopSearchPersonalDetailPage</NAME>
+      <DESCRIPTION>Web Shop Search Personal mode Detail Page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_ShopScreen3</ID>
+      <SCREEN_KEY>ShopSearchFreeText</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ShopSearchFreeText</NAME>
+      <DESCRIPTION>ShopSearch Free Text Item mode Grid List</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_ShopScreen4</ID>
+      <SCREEN_KEY>ShopSearchFreeTextDetailPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ShopSearchFreeTextDetailPage</NAME>
+      <DESCRIPTION>Shop Search Free Text Item mode Detail Page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_ShopScreen5</ID>
+      <SCREEN_KEY>ShopSearchPurchaseInstructions</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ShopSearchPurchaseInstructions</NAME>
+      <DESCRIPTION>Shop Search Purchase Instructions mode Grid List</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_ShopScreen6</ID>
+      <SCREEN_KEY>ShopSearchPurchaseInstructionsDetailPage</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ShopSearchPurchaseInstructionsDetailPage</NAME>
+      <DESCRIPTION>Shop Search Purchase Instructions mode Detail Page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>P_ShopScreen7</ID>
+      <SCREEN_KEY>ShopSearchPurchaseOrder</SCREEN_KEY>
+      <PRODUCT_CODE>PROC</PRODUCT_CODE>
+      <NAME>ShopSearchPurchaseOrder</NAME>
+      <DESCRIPTION>ShopSearch Purchase Order mode Grid List</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>PurchaseOrderScreen</ID>
+      <SCREEN_KEY>PurchaseOrderScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Order</NAME>
+      <DESCRIPTION>Purchase order screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>PurchaseRequisitionApproveScreen</ID>
+      <SCREEN_KEY>PurchaseRequisitionApproveScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Approve)</NAME>
+      <DESCRIPTION>Purchase Requisition Approve</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>PurchaseRequisitionDraftScreen</ID>
+      <SCREEN_KEY>PurchaseRequisitionDraftScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Draft)</NAME>
+      <DESCRIPTION>Purchase Requisition Draft</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>PurchaseRequisitionFinalize</ID>
+      <SCREEN_KEY>PurchaseRequisitionFinalizeScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Finalize)</NAME>
+      <DESCRIPTION>Purchase Requisition Finalize</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>PurchaseRequisitionFinalizeAddr</ID>
+      <SCREEN_KEY>PurchaseRequisitionFinalizeAddressScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Finalize-Address)</NAME>
+      <DESCRIPTION>Purchase Requisition Finalize Address</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>PurchaseRequisitionReviewScreen</ID>
+      <SCREEN_KEY>PurchaseRequisitionReviewScreen</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition (Review)</NAME>
+      <DESCRIPTION>Purchase Requisition Review</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>ROCDummyScreen</ID>
+      <SCREEN_KEY>ProcurementDummyListPage</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>ProcurementDummyListPage</NAME>
+      <DESCRIPTION>Procurement dummy list page</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>a4fcec2d5cbd4d1182f2a52110w28937</ID>
+      <SCREEN_KEY>PurchaseRequisitionSearch</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition Search</NAME>
+      <DESCRIPTION>Purchase Requisition Search Screen</DESCRIPTION>
+    </CMN_SCREEN>
+    <CMN_SCREEN>
+      <ID>a4fcec2d5cbd4d1182f2a52110wo3488</ID>
+      <SCREEN_KEY>PurchaseRequisition</SCREEN_KEY>
+      <PRODUCT_CODE>Procurement</PRODUCT_CODE>
+      <NAME>Purchase Requisition</NAME>
+      <DESCRIPTION>Purchase Requisition</DESCRIPTION>
+    </CMN_SCREEN>
+  </CMN_SCREEN_TABLE>
+</CT>

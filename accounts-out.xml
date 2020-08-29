@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Documentelement>
+    <Item>
+      <Text1>
+        13460
+      </Text1>
+      <Text2>
+        DÉV. EN COURS - EFF CHG (DÉBIT
+      </Text2>
+      <Inherit>
+        1
+      </Inherit>
+      <Company>
+        FluxymFrance
+      </Company>
+    </Item>
+    <Item>
+      <Text1>
+        14180
+      </Text1>
+      <Text2>
+        A/L EN COURS - EFF CHG (QT MOV
+      </Text2>
+      <Inherit>
+        1
+      </Inherit>
+      <Company>
+        FluxymFrance
+      </Company>
+    </Item>
+    <Item>
+      <Text1>
+        14260
+      </Text1>
+      <Text2>
+        A/B EN COURS - EFF CHG (DÉBIT
+      </Text2>
+      <Inherit>
+        1
+      </Inherit>
+      <Company>
+        FluxymFrance
+      </Company>
+    </Item>
+</Documentelement>

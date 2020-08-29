@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<foo foo-attr="foo value">
+  <bar bar-attr="bar value">
+    <baz>The baz value1</baz>
+    <baz>The baz value2</baz>
+    <baz>The baz value3</baz>
+  </bar>
+</foo>

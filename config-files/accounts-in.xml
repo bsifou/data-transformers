@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocumentElement>
+	<Item>
+		<ObjectAccountCode>13460</ObjectAccountCode>
+		<ObjectAccountNameEn>PROP. UNDER DEV. - EXCHG (DEBI</ObjectAccountNameEn>
+		<ObjectAccountNameFr>D&#201;V. EN COURS - EFF CHG (D&#201;BIT</ObjectAccountNameFr>
+		<ObjectAccountCurrency/>
+		<SubAccountCode/>
+		<PostingEditCode/>
+		<Active>1</Active>
+	</Item>
+	<Item>
+		<ObjectAccountCode>14180</ObjectAccountCode>
+		<ObjectAccountNameEn>TEN. IMP. IN PROG- EXCHG (</ObjectAccountNameEn>
+		<ObjectAccountNameFr>A/L EN COURS - EFF CHG (QT MOV</ObjectAccountNameFr>
+		<ObjectAccountCurrency/>
+		<SubAccountCode/>
+		<PostingEditCode/>
+		<Active>1</Active>
+	</Item>
+	<Item>
+		<ObjectAccountCode>14260</ObjectAccountCode>
+		<ObjectAccountNameEn>BLDG IMP. IN PROG. - EXCHG (DE</ObjectAccountNameEn>
+		<ObjectAccountNameFr>A/B EN COURS - EFF CHG (D&#201;BIT</ObjectAccountNameFr>
+		<ObjectAccountCurrency/>
+		<SubAccountCode/>
+		<PostingEditCode/>
+		<Active>1</Active>
+	</Item>
+</DocumentElement>
+

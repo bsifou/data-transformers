@@ -1,0 +1,12 @@
+<DocumentElement>
+ <Item>
+  <Text_1 />      <!-- (string, 25, optional) Code / short name to identify dimension-->
+  <Text_2 />      <!-- (string, 2000, optional?) Descriptive name of the dimension-->
+  <Text_3 />     <!-- (string, 25, optional?) Tax code of the dimension-->
+  <Company />      <!-- (string, 100) Company code for which the dimension is defined -->
+  <Inherit />      <!-- (boolean) Will dimension inherit in organization structure. Values true or false -->
+ </Item>
+</DocumentElement>
+
+
+

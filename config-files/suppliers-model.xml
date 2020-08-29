@@ -1,0 +1,62 @@
+<DocumentElement>
+ <Supplier>
+  <Company />       ?<!-- (string, 32?) Company code -->
+  <Code />               <!-- (string, 25) Supplier's business ID/Code. Unique identifier. Varies in different countries. 1) More commonly source ERP supplier code.-->
+  <Name />               <!-- (string, 250) Name of the supplier company / supplier name -->
+  <PaymentDenied />             <!-- (boolean, 5, optional) Defines if payment is denied to this supplier, True = Yes, False = No -->
+  <PaymentTermCode />     <!-- (string, 25, optional) Payment terms for the supplier -->
+  <Currency />       <!-- (string, 3, optional) Default currency code of the supplier -->
+  <Active />       <!-- (string, boolean, 5, optional) Defines if the supplier is active, True = Active, False = Inactive? -->
+  <Language />       <!-- (string, 25, optional) Language  code, format example: ?en-US -->
+  <OrderFormat />      <!-- (string, 5, optional) Format of supplier's purchasing message (XML, EMAIL, None, EHF, NotSet) -->
+  <OrderEmail />              <!-- (string, 1800, optional) E-mail address for purchasing messages -->
+  <Inherit />              <!-- (boolean, optional) Will dimension inherit in organization structure. Values true or false -->
+  <DeliveryTermCode />     <!-- (string, 32, optional) Purchase order default delivery term -->
+  <Location />       <!-- (string, 100, optional) Purchase order default location -->
+  <BankAccounts>
+   <SupplierBankAccount>             <!-- optional -->?
+    <Bban />      <!-- (string, 50, optional) Bank Account Number -->
+    <Name />      <!-- (string, 250, optional) Bank name -->
+    <AdditionalData1 />    <!-- (string, 250, optional) Additional bank information -->
+    <AdditionalData2 />    <!-- (string, 250, optional) Additional bank information -->
+    <Iban />      <!-- (string, 50, optional) International Bank Account Number -->
+    <Swift />      <!-- (string, 20, optional) BIC/Swift code -->
+    <IsDefault />     <!-- (boolean, optional) Indicates default bank account for the supplier having many bank accounts, True = Active, False = Inactive -->
+   </SupplierBankAccount>
+  </BankAccounts>
+  <SupplierIdentifiers>
+   <SupplierIdentifier>   <!-- optional -->  
+    <key />      <!-- (string, 32, optional) Name of the identifier -->
+    <value />      <!-- (string, 50, optional) Supplier Identifier, Vat Registeration Code, EDI-ID, DUNS, Australian Business Number etc. -->
+    <DefaultPartyID/>  <!-- (string, boolean, 5, optional) it will set the default party ID from any of the identifiers, if multiple party ID's set to true then it will set "NO:ORGNR" identifier as default party ID (values :- true|false|True|False|TRUE|FALSE|1|0|)  -->
+   </SupplierIdentifier>
+  </SupplierIdentifiers>
+  <AdditionalDatas>
+   <AdditionalData>   <!-- optional -->
+    <key />      <!-- (string, 25) Additional information key -->
+    <value />      <!-- (string, 250) Additional information value -->
+   </AdditionalData>
+  </AdditionalDatas>
+  <SupplierAddresses>
+   <SupplierAddress>           <!-- optional -->
+    <ExternalCode/>    <!-- (string, optional) -->
+                                <Type />       <!-- (string, optional) Address type, Supported values: 'PostalAddress', 'PhysicalLocation'-->
+    <Name />              <!-- (string, 2000) Supplier address name -->
+    <Description />             <!-- (string, 2000, optional) Supplier address description -->
+    <IsDefault />      <!-- (boolean, 5, optional) Address is default indicator, True = Active, False = Inactive -->
+    <ExternalIdentifier />            <!-- (string, 100) Supplier address unique code -->
+    <AddressParts>    <!-- optional -->
+     <SupplierAddressPart>
+      <AddressPartKey />    <!-- (string, 32, optional) Address key, Example: STREET_NAME, COUNTRY, CITY_NAME -->
+      <AddressPartText />           <!-- (string, 2000, optional) Address part text -->
+     </SupplierAddressPart>
+    </AddressParts>
+   </SupplierAddress>
+  </SupplierAddresses>
+  <EmailAddresses>
+   <SupplierEmail>   <!-- optional -->
+    <EmailAddress />    <!-- (string, 320, optional) Supplier contact email -->
+   </SupplierEmail>  
+  </EmailAddresses>
+ </Supplier>
+</DocumentElement>

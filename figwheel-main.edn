@@ -1,0 +1,7 @@
+{:ring-handler configs.server/handler
+ :open-file-command "emacsclient"
+ :log-syntax-error-style :concise}
+
+(add-to-list 'exec-path "C:/Program Files/7-Zip")
+
+
