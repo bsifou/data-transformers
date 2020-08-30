@@ -12,11 +12,6 @@ or
 
 clojure -m figwheel.main -b dev -r from the command line 
 
------------------------------------
-links:
-https://github.com/frericksm/clj-windows
-https://github.com/forward-blockchain/qlkit-todo-demo
--------------------------------------------
 
 # docs:
 https://figwheel.org/docs/emacs.html
