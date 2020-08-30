@@ -19,13 +19,13 @@ https://cider.readthedocs.io/en/latest/clojurescript/#using-figwheel-main
 https://www.youtube.com/watch?v=hcFx-QL5ySM
 ```
 
-`clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.20.0"} }}' -e '(require (quote cider-nrepl.main)) (cider-nrepl.main/init ["cider.nrepl/cider-middleware"])'`
+clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.20.0"} }}' -e '(require (quote cider-nrepl.main)) (cider-nrepl.main/init ["cider.nrepl/cider-middleware"])'`
 ```
 it will not run on windows.
 You have to use double quotes instead of single quotes  an additionally you have to escape double quotes in strings with a backslash. so the modified command 
 
 ```
-`clj -Sdeps "{:deps {cider/cider-nrepl {:mvn/version \"0.20.0\"} }}" -e "(require (quote cider-nrepl.main)) (cider-nrepl.main/init [\"cider.nrepl/cider-middleware\"])"`
+clj -Sdeps "{:deps {cider/cider-nrepl {:mvn/version \"0.20.0\"} }}" -e "(require (quote cider-nrepl.main)) (cider-nrepl.main/init [\"cider.nrepl/cider-middleware\"])"`
 ```
 runs on windows and *surprise*  it also runs on unix
 # data-transformers
